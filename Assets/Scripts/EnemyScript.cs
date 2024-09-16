@@ -50,8 +50,7 @@ public class EnemyScript : MonoBehaviour
             /*transform.position = Vector3.MoveTowards(transform.position, player.position, step);*/
 
         }
-
-
+        
 
     }
 }
