@@ -30,26 +30,31 @@ public class EnemyScript : MonoBehaviour
         Vector3 Direction = (player.position - transform.position ).normalized;
        /* Quaternion lookRotation = Quaternion.LookRotation(Vector3.forward, directionToPlayer);
 */
-
-        if (dist <= 10)
+        if (dist > 10)
         {
-            transform.RotateAround(player.position, Vector3.forward, 50 * Time.deltaTime);
-            /* transform.position = Vector3.MoveTowards(transform.position, player.position, step);*/
+            transform.RotateAround(radius.position, Vector3.forward, 60 * Time.deltaTime);
+            /*transform.position = Vector3.MoveTowards(transform.position, player.position, step);*/
+            Debug.Log("More than 10");
+
         }
-        else if(dist <= 5)
+        else if (dist <= 10 && dist > 5)
+        {
+            transform.RotateAround(radius.position, Vector3.forward, 50 * Time.deltaTime);
+            /* transform.position = Vector3.MoveTowards(transform.position, player.position, step);*/
+
+            Debug.Log("10");
+        }
+        else if(dist <= 5 && dist > 1)
         {
             transform.RotateAround(player.position, Vector3.forward, 40 * Time.deltaTime);
+            Debug.Log("5");
         }
         else if(dist <= 1)
         {
             transform.RotateAround(player.position, Vector3.forward, 10 * Time.deltaTime);
+            Debug.Log("1");
         }
-        else if (dist > 10)
-        {
-            transform.RotateAround(radius.position, Vector3.forward, 60 * Time.deltaTime);
-            /*transform.position = Vector3.MoveTowards(transform.position, player.position, step);*/
-
-        }
+       
         
 
     }
